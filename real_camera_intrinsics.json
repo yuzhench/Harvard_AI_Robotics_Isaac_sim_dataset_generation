@@ -1,0 +1,86 @@
+{
+  "_description": "Real RealSense camera intrinsics — 4 identical cameras mounted at ceiling corners of a 4m x 3m x 2.44m room",
+  "_room": { "length_m": 4.0, "width_m": 3.0, "height_m": 2.44 },
+  "_positions": {
+    "cam0": "+X+Y corner  ( 2.0,  1.5, 2.44)",
+    "cam1": "+X-Y corner  ( 2.0, -1.5, 2.44)",
+    "cam2": "-X+Y corner  (-2.0,  1.5, 2.44)",
+    "cam3": "-X-Y corner  (-2.0, -1.5, 2.44)"
+  },
+  "cam0": {
+    "prim_path": "/Replicator/Camera_Xform_01/Camera",
+    "resolution_width": 640,
+    "resolution_height": 480,
+    "fx": 605.91,
+    "fy": 605.54,
+    "cx": 326.88,
+    "cy": 258.80,
+    "hfov_deg": 55.66,
+    "vfov_deg": 43.20,
+    "focal_length_mm": 1.93,
+    "horizontal_aperture_mm": 2.038,
+    "vertical_aperture_mm": 1.529,
+    "K": [
+      [605.91, 0.0,    326.88],
+      [0.0,    605.54, 258.80],
+      [0.0,    0.0,    1.0   ]
+    ]
+  },
+  "cam1": {
+    "prim_path": "/Replicator/Camera_Xform_02/Camera",
+    "resolution_width": 640,
+    "resolution_height": 480,
+    "fx": 605.91,
+    "fy": 605.54,
+    "cx": 326.88,
+    "cy": 258.80,
+    "hfov_deg": 55.66,
+    "vfov_deg": 43.20,
+    "focal_length_mm": 1.93,
+    "horizontal_aperture_mm": 2.038,
+    "vertical_aperture_mm": 1.529,
+    "K": [
+      [605.91, 0.0,    326.88],
+      [0.0,    605.54, 258.80],
+      [0.0,    0.0,    1.0   ]
+    ]
+  },
+  "cam2": {
+    "prim_path": "/Replicator/Camera_Xform_03/Camera",
+    "resolution_width": 640,
+    "resolution_height": 480,
+    "fx": 605.91,
+    "fy": 605.54,
+    "cx": 326.88,
+    "cy": 258.80,
+    "hfov_deg": 55.66,
+    "vfov_deg": 43.20,
+    "focal_length_mm": 1.93,
+    "horizontal_aperture_mm": 2.038,
+    "vertical_aperture_mm": 1.529,
+    "K": [
+      [605.91, 0.0,    326.88],
+      [0.0,    605.54, 258.80],
+      [0.0,    0.0,    1.0   ]
+    ]
+  },
+  "cam3": {
+    "prim_path": "/Replicator/Camera_Xform_04/Camera",
+    "resolution_width": 640,
+    "resolution_height": 480,
+    "fx": 605.91,
+    "fy": 605.54,
+    "cx": 326.88,
+    "cy": 258.80,
+    "hfov_deg": 55.66,
+    "vfov_deg": 43.20,
+    "focal_length_mm": 1.93,
+    "horizontal_aperture_mm": 2.038,
+    "vertical_aperture_mm": 1.529,
+    "K": [
+      [605.91, 0.0,    326.88],
+      [0.0,    605.54, 258.80],
+      [0.0,    0.0,    1.0   ]
+    ]
+  }
+}
