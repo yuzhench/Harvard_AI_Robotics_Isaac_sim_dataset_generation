@@ -1,6 +1,7 @@
 from isaacsim import SimulationApp
+import sys
 
-simulation_app = SimulationApp({"headless": False})
+simulation_app = SimulationApp({"headless": "--headless" in sys.argv})
 
 # ── SimulationApp 已创建，现在可以安全 import Isaac Sim 模块 ──────────────────
 import argparse
@@ -45,12 +46,23 @@ parser.add_argument(
     help="Camera recording FPS (default: 25). Must be <= render FPS (25Hz).",
 )
 _SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+_DEVICE_SAVE_DIRS = {
+    "laptop": os.path.join(_SCRIPT_DIR, "collected_data"),
+    "server": "/isaac-sim/.local/share/ov/data/collected_data",
+}
+parser.add_argument(
+    "--device",
+    type=str,
+    default="laptop",
+    choices=["laptop", "server"],
+    help="Device preset: 'laptop' saves to <script_dir>/collected_data, 'server' saves to the mounted data volume.",
+)
 parser.add_argument(
     "--save-dir",
     type=str,
-    default=os.path.join(_SCRIPT_DIR, "collected_data"),
+    default=None,
     metavar="PATH",
-    help="Directory to save collected data. Default: <script_dir>/collected_data",
+    help="Override save directory. If not set, uses --device preset.",
 )
 parser.add_argument(
     "--quality",
@@ -79,7 +91,7 @@ TARGET_POS    = np.array(args.target)   # [x, y] 目标坐标
 ARRIVAL_DIST  = 0.4                     # 到达判定半径（米）
 RENDER_FPS    = 200 / 8                 # 25.0 Hz（rendering_dt = 8/200）
 CAPTURE_EVERY = max(1, round(RENDER_FPS / args.record_fps))
-SAVE_DIR      = args.save_dir
+SAVE_DIR      = args.save_dir if args.save_dir is not None else _DEVICE_SAVE_DIRS[args.device]
 
 _rgb_fmt   = "PNG (lossless)" if args.quality == "high" else "JPG quality=90 (lossy)"
 _depth_fmt = "NPY (float32)"  if args.quality == "high" else "NPZ compressed (float32)"
